@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale-1">
+	<title>Prismoptic | Consulta Compra</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/general.css">
+</head>
+<body>
+	<div class="container inside">
+		<nav class="navbar navbar-expand-lg navbar-light">
+		  	<a class="navbar-brand" href="home.html"> <img src="img/logo.png" style="width: 10em;"> </a>
+
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		  	<div class="collapse navbar-collapse" id="navbarColor01">
+		    	<ul class="navbar-nav mr-auto">
+		      		<!--<li class="nav-item">
+		        	<a class="nav-link" href="home.html">Inicio<span class="sr-only">(current)</span></a>
+		      		</li>-->
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Factura</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="nvaFactura.html">Nueva</a>
+							<a class="dropdown-item" href="consultaFactura.html">Consultar</a>	
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cliente</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item " href="consultaCliente.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Producto</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="catalogoProducto.html">Catalogo</a>
+							<a class="dropdown-item" href="inventarioProducto.html">Inventario</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compra</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="odcCompra.html">Orden de compra</a>
+							<a class="dropdown-item active" href="consultarCompra.html">Consultar</a>
+    					</div>
+  					</li>
+		      		
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Proveedor</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultarProveedor.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuario</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultarUsuario.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item">
+		        	<a class="nav-link" href="reportes.html">Reportes</a>
+		      		</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ayuda</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="document/Prismoptic-Manual.pdf">Manual</a>
+    					</div>
+  					</li>
+
+  					<!--<script type="text/javascript">
+		      			function noDisponible() {
+		      				alert("No disponible. Intente más tarde");
+		      			}
+		      		</script>-->
+
+		      		<li class="nav-item">
+        				<a class="nav-link" href="index.html">Cerrar sesión</a>
+      				</li>
+		    	</ul>
+		  	</div>
+		</nav>
+
+		<div class="col-md-11" style="margin: auto; margin-top: 3vh; display: flex;">
+			<div class="text-black" style="margin-top: 10vh; margin-left: 2vh;">
+				<h3>Consulta Compras</h3>
+			</div>
+
+			<div id="invalido" class="toast alert alert-dismissible alert-danger" style="margin-left: auto; margin-bottom: auto; margin-top: auto; box-sizing: content-box;" data-delay="1500">
+  					Seleccione un filtro
+				</div>
+		</div>
+		
+		<div class="col-md-11" style="margin: auto; margin-top: 3vh;">
+			<div class="text-white" style="margin-top: 17vh; margin-left: 2vh;">
+				<h6>Compras registradas</h6>
+			</div>
+			<hr>
+			<div style="margin-left: 2.5vh; margin-right: 2.5vh; padding-top: 3vh;" class="jumbotron">
+				<div style="display: flex;">
+					<div style="width: 50%; ">
+						<label class="text-black" style=" margin-left: 2vh;">Ingrese una búsqueda</label>
+
+						<div class="col-md-10">
+							<input class="input-width form-control form-control-sm" type="text" id="busqueda" placeholder="Ingrese una búsqueda" maxlength="15">
+						</div>
+
+						<div style="margin-left: 2vh; margin-top: 2vh;">
+							<button class="btn btn-warning" id="btnLimpiar">Limpiar</button>
+						</div>
+					</div>
+					<div style="display: flex; margin-bottom: -1vh; width: 30em;">
+						<div class="col-md-12">
+							<label class="text-black">Realice un búsqueda por filtro</label>
+							<div class="form-group">
+    							<select class="form-control form-control-sm col-md-12 cmboxOpcion" id="cmboxOpcion" name="cmboxOpcion">
+    								<option selected="" value="0">Seleccione una opción</option>
+      								<option value="1">Código</option>
+								    <option value="2">Proveedor</option>
+								    <option value="3">Fecha</option>
+								    <option value="4">Pago</option>
+    							</select>
+  							</div>
+						</div>
+					</div>	
+				</div>
+				<hr>
+				<div style="display: flex;">
+					<div style="margin-left: 2vh; margin-top: 0vh; margin-bottom: -6vh;">
+						<button class="btn btn-success" id="btnRegistrarCompra">Registrar compra</button>
+					</div>
+					<div style="margin-left: 2vh; margin-top: 0vh; margin-bottom: -6vh;">
+						<button class="btn btn-success" id="btnPedidosPendientes">Ver pedidos pendientes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<table class="table table-light table-hover" style="margin: auto; margin-top: 2vh; width: 86%;">
+			<thead>
+				<tr>
+					<th> Código </th>
+					<th> Proveedor </th>
+					<th> Fecha </th>
+					<th> Pago </th>
+					<th> Acción </th>
+				</tr>
+			</thead>
+
+			<tbody id="tableCompra" class="table table-hover buscar">
+				
+			</tbody>
+		</table>
+
+		<div class="modal fade" id="modalRegistrarCompra">
+  			<div class="modal-dialog modal-lg" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<h5 class="modal-title">Registrar compra</h5>
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCerrarModalRegistro">
+          				<span aria-hidden="true">&times;</span>
+        				</button>
+      				</div>
+      				<div class="modal-body" style="display: flex;">
+        				<div style="margin: auto;">
+        					
+        					<div class="col-md-12" style="margin-bottom: -0.5em;">
+        						<label style="text-align: justify;">Una vez haya generado la planilla O/C, deberá introducir su respectivo código y seleccionar que productos se despacharán. La fecha de entrega se generará automáticamente.</label>
+        					</div>
+
+        					<hr>
+
+        					<div style="margin: auto; margin-bottom: 1vh;">
+        						
+        						<div class="col-md-12">
+        							<div style="display: inline-grid;">
+        								<label>Código O/C</label>
+        								<label hidden="hidden" id="idODC"></label>
+        								<label hidden="hidden" id="fechaODC"></label>
+        							</div>
+        						</div>
+
+        						<div style="display: flex;">
+        							<div class="col-md-9">
+										<input class="form-control form-control-sm" placeholder="Código O/C" type="text" id="codigoOC" maxlength="7">
+									</div>
+
+									<div>
+										<button class="btn btn-primary" id="btnCargarODC">Buscar</button>
+									</div>
+
+									<div>
+										<button class="btn btn-danger" id="btnCancelarODC" style="margin-left: 0.5em;" disabled="disabled">Cancelar</button>
+									</div>
+        						</div>
+
+							</div>
+
+							<hr>
+
+							<div style="display: flex; margin: auto; margin-top: 1em;">
+								<div class="col-md-12">
+        							<div style="display: inline-grid;">
+        								<label>Usuario solicitante</label>
+        							</div>
+									<input class="form-control form-control-sm" placeholder="001" type="tel" id="existenciaProducto" maxlength="2" disabled="disabled">
+								</div>
+							</div>
+
+							<div style="display: flex; margin: auto; margin-top: 1em;">
+								<div class="col-md-6">
+        							<div style="display: inline-grid;">
+        								<label>Fecha de O/C</label>
+        							</div>
+									<input class="input-width form-control form-control-sm fecha" type="date" id="fecha_odc" placeholder="Fecha de O/C" maxlength="8" disabled="disabled">
+								</div>
+
+								<div class="col-md-6">
+        							<div style="display: inline-grid;">
+        								<label>Fecha de entrega</label>
+        							</div>
+									<input class="input-width form-control form-control-sm fecha" type="date" id="fecha_entrega" placeholder="Fecha de entrega" maxlength="8" disabled="disabled">
+								</div>
+							</div>
+
+							<hr>
+
+							<div style="display: flex; margin: auto; margin-top: 1em;">
+								<div class="col-md-6">
+        							<div style="display: inline-grid;">
+        								<label>Identificación</label>
+        							</div>
+									<input class="form-control form-control-sm" placeholder="" type="tel" id="identificacion_proveedor" maxlength="2" disabled="disabled">
+								</div>
+
+								<div class="col-md-6">
+        							<div style="display: inline-grid;">
+        								<label>Proveedor</label>
+        							</div>
+									<input class="form-control form-control-sm" placeholder="" type="tel" id="nombre_proveedor" maxlength="2" disabled="disabled">
+								</div>
+							</div>
+
+							<div style="display: flex; margin: auto; margin-top: 1em;">
+								<div class="col-md-6">
+        							<div style="display: inline-grid;">
+        								<label>Teléfono</label>
+        							</div>
+									<input class="form-control form-control-sm" placeholder="" type="tel" id="telefono_proveedor" maxlength="2" disabled="disabled">
+								</div>
+
+								<div class="col-md-6">
+        							<div style="display: inline-grid;">
+        								<label>Email</label>
+        							</div>
+									<input class="form-control form-control-sm" placeholder="" type="tel" id="email_proveedor" maxlength="2" disabled="disabled">
+								</div>
+							</div>
+
+							<div style="display: flex; margin: auto; margin-top: 1em;">
+								<div class="col-md-6">
+        							<div style="display: inline-grid;">
+        								<label>Dirección</label>
+        							</div>
+									<input class="form-control form-control-sm" placeholder="" type="tel" id="direccion_proveedor" maxlength="2" disabled="disabled">
+								</div>
+
+								<div class="col-md-6">
+        							<div style="display: inline-grid;">
+        								<label>Encargado</label>
+        							</div>
+									<input class="form-control form-control-sm" placeholder="" type="tel" id="encargado_compra" maxlength="2" disabled="disabled">
+								</div>
+							</div>
+
+							<hr>
+
+							<div style="display: flex; margin: auto; margin-top: 1em;">
+								<div class="col-md-5">
+									<button class="btn btn-primary" id="btnCargarProductosODC" disabled="disabled">Mostrar productos</button>
+								</div>
+							</div>
+
+							<div style="display: flex; margin: auto; margin-top: 1em;">
+								<div class="col-md-12">
+									<table class="table table-light table-hover" style="margin: auto;">
+										<thead>
+											<tr>
+												<th hidden="hidden"> ID Producto </th>
+												<th hidden="hidden"> Existencia </th>
+												<th> Código </th>
+												<th> Descripción </th>
+												<th> Pedido </th>
+												<th> Entregado </th>
+												<th> Precio </th>
+												<th> Total </th>
+												<th> Acción </th>
+											</tr>
+										</thead>
+
+										<tbody id="tableProductosODC" class="table table-hover">
+											
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							
+
+        				</div>
+      				</div>
+	      			<div class="modal-footer" style="display: flex;">
+	      				<div id="invalido2" class="toast alert alert-dismissible alert-danger" style="box-sizing: content-box; margin-left: 1vh; margin-right: auto; margin-top: -1vh; margin-bottom: -1vh;" data-delay="1500">
+  							Introduzca información válida
+						</div>
+        				<button type="button" class="btn btn-primary" id="btnRegistroODC" disabled="disabled">Aceptar</button>
+      				</div>
+    			</div>
+  			</div>
+		</div>
+
+		<div class="modal fade" id="modalPedidosPendientes">
+  			<div class="modal-dialog modal-lg" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<h5 class="modal-title">Pedidos pendientes</h5>
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCerrarModalRegistro">
+          				<span aria-hidden="true">&times;</span>
+        				</button>
+      				</div>
+      				<div class="modal-body" style="display: flex;">
+        				<div style="margin: auto;">
+        					
+        					<div style="display: flex; margin: auto; margin-bottom: 1vh;">
+        						
+        						<div class="col-md-12">
+        							<div style="display: inline-grid;">
+        								<label>Buscar O/C</label>
+        							</div>
+        							<input class="form-control form-control-sm" placeholder="Ingrese código O/C" type="text" maxlength="7" id="busquedaPendiente">
+        						</div>
+
+							</div>
+
+        					
+
+							<hr>
+
+							<div style="display: flex; margin: auto; margin-top: 1em;">
+								<div class="col-md-12">
+									<table class="table table-light table-hover" style="margin: auto;">
+										<thead>
+											<tr>
+												<th> Código </th>
+												<th> Proveedor </th>
+												<th> Fecha </th>
+												<th> Pago </th>
+												<th> Acción </th>
+											</tr>
+										</thead>
+
+										<tbody id="tableCompraPendiente" class="table table-hover">
+											<tr>
+												<td> <div style="width: 2vh;">OC01</div> </td>
+												<td> <div style="width: 15vh;">Laboratorio Oftalmológico</div> </td>
+												<td> <div style="width: 5vh;">MAD2221</div> </td>
+												<td> <div style="width: 2vh;">30</div>  </td>
+												<td> <div style="width: 10vh;">15-06-20</div>  </td>
+												<td> <div style="width: 5vh;">200.00</div>  </td>
+												<td> <div style="width: 7vh;">6000.00</div>  </td>
+												<td>
+													<div>
+														<button style="width: 15vh;" class="btn btn-danger"> Anular </button> 
+													</div>
+												</td>
+											</tr>
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							
+
+        				</div>
+      				</div>
+	      			<div class="modal-footer" style="display: flex;">
+      				</div>
+    			</div>
+  			</div>
+		</div>
+
+		<div class="modal fade" id="modalDetalle">
+  			<div class="modal-dialog" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<h5 class="modal-title">Detalle de Factura</h5>
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCerrarModalRegistro">
+          				<span aria-hidden="true">&times;</span>
+        				</button>
+      				</div>
+      				<div class="modal-body" style="display: flex;">
+        				<div style="margin: auto;">
+
+        					<div class="col-md-12" style="margin: auto;" id="detalle_pagos">
+        						
+        					</div>
+
+							<div style="display: flex; margin: auto;">
+								<div class="col-md-12">
+									<table class="table table-light table-hover" style="margin: auto;">
+										<thead>
+											<tr>
+												<th>Código</th>
+												<th>Descripción</th>
+												<th>Cantidad</th>
+												<th>Precio</th>
+											</tr>
+										</thead>
+
+										<tbody id="tableDetalles" class="table table-hover">
+											
+										</tbody>
+
+										<tfoot id="footerTableDetalles">
+				 							
+										</tfoot>
+									</table>
+								</div>
+							</div>
+
+							
+
+        				</div>
+      				</div>
+	      			<div class="modal-footer" style="display: flex;">
+	      				<!---<div id="invalido2" class="toast alert alert-dismissible alert-danger" style="box-sizing: content-box; margin-left: 1vh; margin-right: auto; margin-top: -1vh; margin-bottom: -1vh;" data-delay="1500">
+  							Introduzca información válida
+						</div>
+        				<button type="button" class="btn btn-primary" id="btnAgregarProducto">Aceptar</button>-->
+      				</div>
+    			</div>
+  			</div>
+		</div>
+
+
+		
+
+	</div>
+
+	<script src="js/jquery-3.5.0.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/scroll.js"></script>
+	<script src="js/consultarCompra.js"></script>
+</body>
+</html>

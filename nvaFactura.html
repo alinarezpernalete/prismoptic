@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale-1">
+	<title>Prismoptic | Nueva factura</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/general.css">
+</head>
+<body>
+	<div class="container inside" id="container">
+		<nav class="navbar navbar-expand-lg navbar-light">
+		  	<a class="navbar-brand" href="home.html"> <img src="img/logo.png" style="width: 10em;"> </a>
+
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		  	<div class="collapse navbar-collapse" id="navbarColor01">
+		    	<ul class="navbar-nav mr-auto">
+		      		<!--<li class="nav-item">
+		        	<a class="nav-link" href="home.html">Inicio<span class="sr-only">(current)</span></a>
+		      		</li>-->
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Factura</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item active" href="nvaFactura.html">Nueva</a>
+							<a class="dropdown-item" href="consultaFactura.html">Consultar</a>	
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cliente</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultaCliente.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Producto</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="catalogoProducto.html">Catalogo</a>
+							<a class="dropdown-item" href="inventarioProducto.html">Inventario</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compra</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="odcCompra.html">Orden de compra</a>
+							<a class="dropdown-item" href="consultarCompra.html">Consultar</a>
+    					</div>
+  					</li>
+		      		
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Proveedor</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultarProveedor.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuario</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultarUsuario.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item">
+		        	<a class="nav-link" href="reportes.html">Reportes</a>
+		      		</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ayuda</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="document/Prismoptic-Manual.pdf">Manual</a>
+    					</div>
+  					</li>
+
+  					<!--<script type="text/javascript">
+		      			function noDisponible() {
+		      				alert("No disponible. Intente más tarde");
+		      			}
+		      		</script>-->
+
+		      		<li class="nav-item">
+        				<a class="nav-link" href="index.html">Cerrar sesión</a>
+      				</li>
+		    	</ul>
+		  	</div>
+		</nav>
+
+		<div class="col-md-11" style="margin: auto; margin-top: 3vh; display: flex;">
+			<div class="text-black" style="margin-top: 10vh; margin-left: 2vh;">
+				<h3>Nueva Factura</h3>
+			</div>
+
+			<div id="invalido" class="toast alert alert-dismissible alert-danger" style="margin-left: auto; margin-bottom: auto; margin-top: auto; box-sizing: content-box;" data-delay="1500">
+  					Seleccione un filtro
+				</div>
+		</div>
+		<!------------------------->
+
+		<div class="col-md-11" style="margin: auto; margin-top: 3vh;">
+			<div class="text-white" style="margin-top: 17vh; margin-left: 2vh;">
+				<h6>Ingrese información del cliente</h6>
+			</div>
+
+			<hr>
+
+			<div style="margin-left: 2.5vh; margin-right: 2.5vh; padding-top: 3vh;  padding-bottom: 3vh;" class="jumbotron">
+				<label class="text-black" style=" margin-left: 2vh;">Ingrese cédula</label>
+				<label class="text-black" style=" margin-left: 2vh;" id="idcliente" hidden="hidden" ></label>
+				<label class="text-black" style=" margin-left: 2vh; float: right;" id="idFactura" hidden="hidden"></label>
+				<label class="text-black" style=" margin-left: 2vh; float: right;" id="noFactura"></label>
+				<label class="text-black" style=" margin-left: 2vh; float: right;">Código de Factura:</label>
+				<div style="display: flex;">
+
+					<div class="col-md-4">
+						<input class="input-width form-control form-control-sm" type="text" id="cedula_cliente" placeholder="Ingrese cédula" maxlength="8">
+					</div>
+
+					<div style="">
+						<button class="btn btn-success" id="btnBuscar">Buscar</button>
+					</div>
+
+					<div style="margin-left: 1vh;">
+						<button class="btn btn-danger" id="btnCancelar">Cancelar</button>
+					</div>
+				</div>
+			</div>
+
+			<div style="margin-left: 2.5vh; margin-right: 2.5vh; padding-top: 3vh;  padding-bottom: 3vh;" class="jumbotron">
+				<div style="display: flex;">
+					<div class="col-md-4">
+						<label class="text-black">Nombre</label>
+						<input class="input-width form-control form-control-sm" type="text" id="nombre_cliente" placeholder="Nombre" maxlength="15" disabled="disabled">
+					</div>
+
+					<div class="col-md-4">
+						<label class="text-black">Apellido</label>
+						<input class="input-width form-control form-control-sm" type="text" id="apellido_cliente" placeholder="Apellido" maxlength="15" disabled="disabled">
+					</div>
+
+					<div class="col-md-4">
+						<label class="text-black">Fecha de nacimiento</label>
+						<input class="input-width form-control form-control-sm fecha" type="date" id="fecha_cliente" placeholder="Fecha de nacimiento" maxlength="8" disabled="disabled">
+					</div>
+				</div>
+
+				<div style="display: flex; margin-top: 3vh;">
+					<div class="col-md-4">
+						<label class="text-black">Dirección</label>
+						<input class="input-width form-control form-control-sm" type="text" id="direccion_cliente" placeholder="Dirección" maxlength="45" disabled="disabled">
+					</div>
+
+					<div class="col-md-4">
+						<label class="text-black">Telefono</label>
+						<input class="input-width form-control form-control-sm" type="text" id="telefono_cliente" placeholder="Telefono" maxlength="11" disabled="disabled">
+					</div>
+
+					<div class="col-md-4">
+						<label class="text-black">Email</label>
+						<input class="input-width form-control form-control-sm" type="text" id="email_cliente" placeholder="Email" maxlength="40" disabled="disabled">
+					</div>
+				</div>
+				<div style="display: flex;">
+					<div style="margin-left: 2vh; margin-top: 2vh;">
+						<button class="btn btn-success" id="btnRegistrar" disabled="disabled">Registrar</button>
+					</div>
+				</div>
+				
+				<hr>
+
+				<div style="display: flex;">
+					<div style="margin-left: 2vh;">
+						<button class="btn btn-warning" id="btnEditarCliente" disabled="disabled">Editar</button>
+					</div>
+					<div style="margin-left: 2vh;">
+						<button class="btn btn-success" id="btnGuardarCliente" disabled="disabled">Guardar</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-white" style="margin-left: 2vh; display: flex; height: 3vh; box-sizing: content-box;">
+				<h6 style="margin-top: auto;">Ingrese información del producto</h6>
+				<div id="invalido2" class="toast alert alert-dismissible alert-danger" style="margin-left: auto; margin-bottom: auto; margin-top: -3vh; margin-right: 3vh; box-sizing: content-box;" data-delay="1500">
+  						Seleccione un filtro
+				</div>
+			</div>
+
+			<hr>
+
+			<div style="margin-left: 2.5vh; margin-right: 2.5vh; padding-top: 3vh;  padding-bottom: 3vh; margin-bottom: 1vh;" class="jumbotron">
+				<label class="text-black" style="margin-left: 2vh;">Ingrese código del producto</label>
+				<div style="margin-left: 2vh;">
+					<button class="btn btn-primary" id="mostrarProductos">Mostrar productos</button>
+				</div>
+				<div class="col-md-12">
+					<table class="table table-hover" style="margin: auto; margin-top: 2vh;">
+						<thead>
+							<tr>
+								<th hidden="hidden">ID</th>
+								<th>Código</th>
+								<th>Descripción</th>
+								<th>Existencia</th>
+								<th>Cantidad</th>
+								<th>Precio</th>
+								<th>Total</th>
+								<th>Acción</th>
+							</tr>
+						</thead>
+
+						<tbody id="tableBusqueda">
+							<tr class="table-active">
+								<td id="idproducto" hidden="hidden">  </td>
+								<td> <input class="form-control form-control-sm" type="text" placeholder="Código" id="codigo_producto"> </td>
+								<td id="descripcion_producto">-</td>
+								<td id="existencia_producto">-</td>
+								<td> <input class="form-control form-control-sm" type="tel" placeholder="Cantidad" id="cantidad_producto" disabled="disabled" maxlength="2"> </td>
+								<td id="precio_producto">0.00</td>
+								<td id="precioTotal_producto">0.00</td>
+								<td><button id="btnListar" class="datosProducto btn btn-success" disabled="disabled">Agregar</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<hr>
+
+			<div style="margin-left: 2.5vh; margin-right: 2.5vh; padding-top: 3vh;  padding-bottom: 3vh; margin-bottom: 1vh;" class="jumbotron">
+				<label class="text-black" style=" margin-left: 2vh;">Lista de productos</label>
+				<div class="col-md-12">
+					<table class="table table-hover" style="margin: auto; margin-top: 2vh;">
+						<thead>
+							<tr>
+								<th hidden="hidden"> ID </th>
+								<th> Código </th>
+								<th> Descripción </th>
+								<th> Cantidad </th>
+								<th> Precio </th>
+								<th> Total </th>
+								<th> Acción </th>
+							</tr>
+						</thead>
+
+						<tbody id="tableProducto">
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<hr>
+
+			<div style="margin-left: 2.5vh; margin-right: 2.5vh; padding-top: 3vh;  padding-bottom: 3vh;" class="jumbotron">
+				
+				<div>
+					<div class="col-md-12">
+						<label class="text-black">Pago:</label>
+						<label id="precioIndicador">0.00</label>
+						<div>
+							<label id="precioIndicador">Presione 'enter' para registrar pago.</label>
+						</div>
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Forma de pago</th>
+									<th><div class="col-md-2">Monto</div></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Efectivo</td>
+									<td>
+										<div class="col-md-12" style="float: right; display: flex;">
+											<input id="efectivo" type="text" class="input-width form-control form-control-sm" placeholder="Ingrese monto">
+											<button class="btn btn-danger btn-sm" id="borrarEfectivo" style="margin-left: 1em; width: 3em;">x</button>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Débito</td>
+									<td>
+										<div class="col-md-12" style="float: right; display: flex;">
+											<input id="debito" type="text" class="input-width form-control form-control-sm" placeholder="Ingrese monto">
+											<button class="btn btn-danger btn-sm" id="borrarDebito" style="margin-left: 1em; width: 3em;">x</button>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Crédito</td>
+									<td>
+										<div class="col-md-12" style="float: right; display: flex;">
+											<input id="credito" type="text" class="input-width form-control form-control-sm" placeholder="Ingrese monto">
+											<button class="btn btn-danger btn-sm" id="borrarCredito" style="margin-left: 1em; width: 3em;">x</button>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Transferencia</td>
+									<td>
+										<div class="col-md-12" style="float: right; display: flex;">
+											<input id="transferencia" type="text" class="input-width form-control form-control-sm" placeholder="Ingrese monto">
+											<button class="btn btn-danger btn-sm" id="borrarTransferencia" style="margin-left: 1em; width: 3em;">x</button>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<hr>
+
+				<div style="display: flex;">
+
+					<!--<div class="col-md-7">
+						<label class="text-black">Forma de pago</label>
+						<div class="form-group">
+	    					<select class="form-control form-control-sm" style="width: 73%;" id="cmboxPago">
+	      						<option value="0" selected="">Seleccione forma de pago</option>
+	      						<option value="1">Efectivo</option>
+	    					</select>
+	  					</div>
+					</div>-->
+
+					<hr>
+
+					<div class="col-md-5">
+						<div class="col-md-11" style="margin: auto;">
+							<div class="text-black"style=" text-align: right;">
+								<label>Sub-total</label>
+								<label id="subPrecio">0.00</label>
+							</div>
+						</div>
+
+						<div class="col-md-11" style="margin: auto;">
+							<div class="text-black"style=" text-align: right;">
+								<label>IVA</label>
+								<label id="IVA">0.00</label>
+							</div>
+						</div>
+
+						<div class="col-md-11" style="margin: auto; margin-bottom: -2vh;">
+							<div class="text-black"style=" text-align: right;">
+								<label>Total</label>
+								<label id="precioTotal">0.00</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<hr>
+
+				<div class="col-md-12" style="margin: auto;">
+					<div style="text-align: right;">
+						<button class="btn btn-success" id="btnFacturar" style="width: 15%;">Facturar</button>		
+					</div>
+				</div>
+			
+					
+			</div>
+
+		
+		</div>
+
+		<!---->
+
+		<div class="modal fade" id="modalProductos">
+  			<div class="modal-dialog modal-lg" role="document">
+	          <div class="modal-content">
+	              <div class="modal-header">
+	                <h5 class="modal-title">Productos en sistema</h5>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="">
+	                  <span aria-hidden="true">&times;</span>
+	                </button>
+	              </div>
+	              <div class="modal-body" style="display: flex;">
+	                <div style="margin: auto;">
+	                  
+	                  <div style="display: flex; margin: auto; margin-bottom: 1vh;">
+	                    
+	                    <div class="col-md-12">
+	                      <div style="display: inline-grid;"><label>Buscar producto</label></div>
+	                      <input class="form-control form-control-sm" placeholder="Ingrese código de producto" type="text" id="busquedaProducto" maxlength="7">
+	                    </div>
+
+	                  </div>
+
+	                  
+
+	              <hr>
+
+	              <div style="display: flex; margin: auto; margin-top: 1em;">
+	                <div class="col-md-12">
+	                  <table class="table table-light table-hover" style="margin: auto;">
+	                    <thead>
+	                      <tr>
+	                        <th hidden="hidden"> ID </th>
+	                        <th> Código </th>
+	                        <th> Descripción </th>
+	                        <th> Existencia </th>
+	                        <th> Precio </th>
+	                      </tr>
+	                    </thead>
+
+	                    <tbody id="tableCatalogo" class="table table-hover">
+	                      
+	                    </tbody>
+	                  </table>
+	                </div>
+	              </div>
+
+	              
+
+	                </div>
+	              </div>
+	              <div class="modal-footer" style="display: flex;">
+	                
+	              </div>
+	          </div>
+        	</div>
+		</div>
+
+		<!---->
+
+		
+
+	</div>
+
+	<script src="js/jquery-3.5.0.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/scroll.js"></script>
+	<script src="js/facturacion.js"></script>
+</body>
+</html>

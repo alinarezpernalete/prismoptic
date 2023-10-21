@@ -1,0 +1,14 @@
+Este primer enlace es de la página subido a el servidor de InfinityFree.
+Ingrese con:
+	Usuario : ADMI
+	Contraseña : 123
+
+Espere un momento con cada acción, el servidor es gratuito y por ende muy lento.
+
+http://prismoptic.epizy.com/
+
+-------------------------------------------------------------------------
+
+Debido a que el servidor de InfinityFree es bastante lento y no me permite mostrar los reportes de manera correcta en formato PDF o siemplemente no responde, le dejo aquí un enlace de Google Drive para que descargue mi proyecto y lo corra en su computadora para que visualice los reportes en formato PDF
+
+https://drive.google.com/drive/folders/1mDsL7myLG9DSSefCtm6uT8_rSMzbZwH6?usp=sharing

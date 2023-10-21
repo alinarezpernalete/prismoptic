@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale-1">
+	<title>Prismoptic | Consulta Cliente</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/general.css">
+</head>
+<body>
+	<div class="container inside">
+		<nav class="navbar navbar-expand-lg navbar-light">
+		  	<a class="navbar-brand" href="home.html"> <img src="img/logo.png" style="width: 10em;"> </a>
+
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		  	<div class="collapse navbar-collapse" id="navbarColor01">
+		    	<ul class="navbar-nav mr-auto">
+		      		<!--<li class="nav-item">
+		        	<a class="nav-link" href="home.html">Inicio<span class="sr-only">(current)</span></a>
+		      		</li>-->
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Factura</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="nvaFactura.html">Nueva</a>
+							<a class="dropdown-item" href="consultaFactura.html">Consultar</a>	
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cliente</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item active" href="consultaCliente.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Producto</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="catalogoProducto.html">Catalogo</a>
+							<a class="dropdown-item" href="inventarioProducto.html">Inventario</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compra</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="odcCompra.html">Orden de compra</a>
+							<a class="dropdown-item" href="consultarCompra.html">Consultar</a>
+    					</div>
+  					</li>
+		      		
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Proveedor</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultarProveedor.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuario</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultarUsuario.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item">
+		        	<a class="nav-link" href="reportes.html">Reportes</a>
+		      		</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ayuda</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="document/Prismoptic-Manual.pdf">Manual</a>
+    					</div>
+  					</li>
+
+  					<!--<script type="text/javascript">
+		      			function noDisponible() {
+		      				alert("No disponible. Intente más tarde");
+		      			}
+		      		</script>-->
+
+		      		<li class="nav-item">
+        				<a class="nav-link" href="index.html">Cerrar sesión</a>
+      				</li>
+		    	</ul>
+		  	</div>
+		</nav>
+
+		<div class="col-md-11" style="margin: auto; margin-top: 3vh; display: flex;">
+			<div class="text-black" style="margin-top: 10vh; margin-left: 2vh;">
+				<h3>Consulta Clientes</h3>
+			</div>
+
+			<div id="invalido" class="toast alert alert-dismissible alert-danger" style="margin-left: auto; margin-bottom: auto; margin-top: auto; box-sizing: content-box;" data-delay="1500">
+  					Seleccione un filtro
+				</div>
+		</div>
+		
+		<div class="col-md-11" style="margin: auto; margin-top: 3vh;">
+			<div class="text-white" style="margin-top: 17vh; margin-left: 2vh;">
+				<h6>Clientes registrados</h6>
+			</div>
+
+			<hr>
+
+			<div style="display: flex; margin-left: 2.5vh; margin-right: 2.5vh; padding-top: 3vh;  padding-bottom: 3vh" class="jumbotron">
+				<div style="width: 50%; ">
+					<label class="text-black" style=" margin-left: 2vh;">Ingrese una búsqueda</label>
+
+					<div class="col-md-10">
+						<input class="input-width form-control form-control-sm" type="text" id="busqueda" placeholder="Ingrese una búsqueda">
+					</div>
+						
+					<div style="margin-left: 2vh; margin-top: 2vh;">
+							<button class="btn btn-warning" id="btnLimpiar">Limpiar</button>
+						</div>
+				</div>
+				<div style="display: flex; margin-bottom: -1vh; width: 30em;">
+						<div class="col-md-12">
+							<label class="text-black">Realice un búsqueda por filtro</label>
+							<div class="form-group">
+    							<select class="form-control form-control-sm col-md-12 cmboxOpcion" id="cmboxOpcion" name="cmboxOpcion">
+    								<option selected="" value="0">Seleccione una opción</option>
+      								<option value="1">Cédula</option>
+								    <option value="2">Nombre y apellido</option>
+								    <option value="3">Dirección</option>
+    							</select>
+  							</div>
+						</div>
+					</div>	
+			</div>
+		</div>
+
+		<table class="table table-light table-hover" style="margin: auto; margin-top: 2vh; width: 86%;">
+			<thead>
+				<tr>
+					<th>Cédula</th>
+					<th><div style="width: 10em;">Nombre y Apellido</div></th>
+					<th>Nacimiento</th>
+					<th>Dirección</th>
+					<th>Teléfono</th>
+					<th>Email</th>
+					<th>Acción</th>
+				</tr>
+			</thead>
+
+			<tbody id="tableCliente" class="table table-hover">
+
+				
+			</tbody>
+		</table>
+
+		<!--- ------->
+
+		<div class="modal fade" id="modalCliente">
+  			<div class="modal-dialog" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<h5 class="modal-title">Editar información</h5>
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCerrarModal">
+          				<span aria-hidden="true">&times;</span>
+        				</button>
+      				</div>
+      				<div class="modal-body" style="display: flex;">
+        				<div style="margin: auto;" class="col-md-6">
+        					<div style="margin-right: 2vh; margin-left: 2vh;">
+        						<label class="text-black">Cédula</label>
+								<input class="input-width form-control form-control-sm" type="text" id="cedula_cliente" placeholder="Cédula" maxlength="15" disabled="disabled">
+							</div>
+							<div style="margin-top: 1vh; margin-left: 2vh; margin-right: 2vh;">
+								<label class="text-black">Nacimiento</label>
+								<input class="input-width form-control form-control-sm fecha" type="date" id="fecha_cliente" placeholder="Fecha de nacimiento" maxlength="8" disabled="disabled">
+							</div>
+							<div style="margin-top: 1vh; margin-left: 2vh; margin-right: 2vh;">
+								<label class="text-black">Telefono</label>
+								<input class="input-width form-control form-control-sm" type="text" id="telefono_cliente" placeholder="Telefono" maxlength="11">
+							</div>
+        				</div>
+        				<div style="margin: auto;" class="col-md-6">
+        					<div style="margin-right: 2vh; margin-left: 2vh;">
+        						<label class="text-black">Nombre y Apellido</label>
+								<input class="input-width form-control form-control-sm" type="text" id="nombre_cliente" placeholder="Nombre y Apellido" maxlength="15" disabled="disabled">
+							</div>
+							<div style="margin-top: 1vh; margin-left: 2vh; margin-right: 2vh;">
+								<label class="text-black">Dirección</label>
+								<input class="input-width form-control form-control-sm" type="text" id="direccion_cliente" placeholder="Dirección" maxlength="45">
+							</div>
+							<div style="margin-top: 1vh; margin-left: 2vh; margin-right: 2vh;">
+								<label class="text-black">Email</label>
+								<input class="input-width form-control form-control-sm" type="text" id="email_cliente" placeholder="Email" maxlength="40">
+							</div>
+        				</div>
+      				</div>
+	      			<div class="modal-footer">
+	      				<div id="invalido2" class="toast alert alert-dismissible alert-danger" style="box-sizing: content-box; margin-left: 1vh; margin-right: auto; margin-top: -1vh; margin-bottom: -1vh;" data-delay="1500">
+  							Introduzca información válida
+						</div>
+        				<button type="button" class="btn btn-primary" id="btnGuardarCliente">Aceptar</button>
+      				</div>
+    			</div>
+  			</div>
+		</div>
+
+		<!--- ------->
+
+	</div>
+
+	<script src="js/jquery-3.5.0.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/scroll.js"></script>
+	<script src="js/consultaCliente.js"></script>
+</body>
+</html>

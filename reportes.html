@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale-1">
+	<title>Prismoptic | Reportes</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/general.css">
+</head>
+<body>
+	<div class="container inside">
+		<nav class="navbar navbar-expand-lg navbar-light">
+		  	<a class="navbar-brand" href="home.html"> <img src="img/logo.png" style="width: 10em;"> </a>
+
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		  	<div class="collapse navbar-collapse" id="navbarColor01">
+		    	<ul class="navbar-nav mr-auto">
+		      		<!--<li class="nav-item">
+		        	<a class="nav-link" href="home.html">Inicio<span class="sr-only">(current)</span></a>
+		      		</li>-->
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Factura</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="nvaFactura.html">Nueva</a>
+							<a class="dropdown-item" href="consultaFactura.html">Consultar</a>	
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cliente</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item " href="consultaCliente.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Producto</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item " href="catalogoProducto.html">Catalogo</a>
+							<a class="dropdown-item" href="inventarioProducto.html">Inventario</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compra</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item " href="odcCompra.html">Orden de compra</a>
+							<a class="dropdown-item" href="consultarCompra.html">Consultar</a>
+    					</div>
+  					</li>
+		      		
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Proveedor</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultarProveedor.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuario</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="consultarUsuario.html">Consultar</a>
+    					</div>
+  					</li>
+
+		      		<li class="nav-item active">
+		        	<a class="nav-link" href="reportes.html">Reportes</a>
+		      		</li>
+
+		      		<li class="nav-item dropdown">
+    					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ayuda</a>
+    					<div class="dropdown-menu" style="">
+							<a class="dropdown-item" href="document/Prismoptic-Manual.pdf">Manual</a>
+    					</div>
+  					</li>
+
+  					<!--<script type="text/javascript">
+		      			function noDisponible() {
+		      				alert("No disponible. Intente más tarde");
+		      			}
+		      		</script>-->
+
+		      		<li class="nav-item">
+        				<a class="nav-link" href="index.html">Cerrar sesión</a>
+      				</li>
+		    	</ul>
+		  	</div>
+		</nav>
+
+		<div class="col-md-11" style="margin: auto; margin-top: 3vh; display: flex;">
+			<div class="text-black" style="margin-top: 10vh; margin-left: 2vh;">
+				<h3>Reportes</h3>
+			</div>
+
+			<div id="invalido" class="toast alert alert-dismissible alert-danger" style="margin-left: auto; margin-bottom: auto; margin-top: auto; box-sizing: content-box;" data-delay="1500">
+  					Seleccione un filtro
+				</div>
+		</div>
+
+		<div class="col-md-11" style="margin: auto; margin-top: 3vh;">
+			<div class="text-white" style="margin-top: 17vh; margin-left: 2vh;">
+				<h6>Reportes en sistema</h6>
+			</div>
+
+			<hr>
+
+			<div style="margin-left: 2.5vh; margin-right: 2.5vh; padding-top: 3vh;  padding-bottom: 3vh" class="jumbotron">
+				<div style="width: 50%; ">
+
+					<div style="display: flex; margin-bottom: -1vh; width: 30em;">
+						<div class="col-md-12">
+							<label class="text-black">Genere reporte por categoría</label>
+							<div class="form-group">
+    							<select class="form-control form-control-sm col-md-12 cmboxOpcion" id="cmboxOpcion" name="cmboxOpcion">
+    								<option selected="" value="0">Seleccione una opción</option>
+      								<option value="1">Factura</option>
+								    <option value="2">Cliente</option>
+								    <option value="3">Producto</option>
+								    <option value="4">Compra</option>
+								    <option value="5">Proveedor</option>
+    							</select>
+  							</div>
+						</div>
+					</div>	
+
+					<!--<form action="php/pdf.php">
+						<div style="margin-left: 2vh; margin-top: 0.5em;">
+							<input type="submit" class="btn btn-success" id="btnBuscar" value="Aceptar"></button>
+						</div>
+					</form>-->
+				</div>
+
+				<hr>
+
+				<div>
+					<div style="display: flex; margin-bottom: -1vh; width: 30em;">
+						<div class="col-md-12" id="filtros">
+							<label class="text-black">Seleccione un filtro</label>
+							<!--<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+							  	<label class="form-check-label" for="exampleRadios1">
+							    	General (incluye facturas anuladas)
+							  	</label>
+							</div>
+
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+							  	<label class="form-check-label" for="exampleRadios2">
+							 		General (no incluye facturas anuladas)   	
+							  	</label>
+							</div>
+
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+							  	<label class="form-check-label" for="exampleRadios3">
+							    	Fechas
+							  	</label>
+							</div>
+							
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+							  	<label class="form-check-label" for="exampleRadios4">
+							    	Métodos de pago
+							  	</label>
+							</div>
+
+							<div style="margin-top: 1em;">
+								<input type="submit" class="btn btn-success" id="btnBuscar" value="Aceptar"></button>
+							</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="PDF"></div>
+
+		<table class="table table-light table-hover" style="margin: auto; margin-top: 2vh; width: 86%;" id="tableReporte">
+			
+		</table>
+		
+
+	</div>
+
+	<script src="js/jquery-3.5.0.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/scroll.js"></script>
+	<script src="js/reportes.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+@font-face{
+  	font-family: Poppins Regular;
+  	src: url("Poppins/Poppins-Regular.ttf");
+}
+
+body{
+	/* Ubicación de la imagen */
+	background-image: url("../img/background.png");
+	/* Para dejar la imagen de fondo centrada, vertical y horizontalmente */
+	background-position: center center;
+	/* Para que la imagen de fondo no se repita */
+	background-repeat: no-repeat;
+	/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+	background-attachment: fixed;
+	/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+	background-size: cover;
+	/* Se muestra un color de fondo mientras se está cargando la imagen de fondo o si hay problemas para cargarla */
+	background-color: #66999;
+	font-family: 'Poppins Regular';
+}
+
+.inside{
+	background-image: url("../img/background2.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: rgb(69,130,236);
+	/*height: 100%;*/
+	box-shadow: 0px 2px 47px -10px rgba(189,189,189,1);
+	padding-bottom: 4vh;
+}
+
